@@ -82,17 +82,17 @@ exports.signup = async (req, res) => {
     })
    
 
-    // const token = jwt.sign(
-    // 	{ email: result.email, id: result._id },
-    // 	'jwtscreat',
-    // 	{ expiresIn: '360000000000' }
-    // );
-    // res.status(200).json({ result, token });
+    const token = jwt.sign(
+    	{ email: result.email, id: result._id },
+    	'jwtscreat',
+    	{ expiresIn: '360000000000' }
+    );
     res
       .status(200)
       .json({
         success: true,
         result,
+        token,
         message: "Successfully Created the User",
       });
   } catch (err) {
